@@ -8,4 +8,6 @@ import com.br.delivery.categoria.domain.Categoria;
 
 public interface CategoriaSpringDataJPA extends JpaRepository<Categoria, UUID>{
 
+	Categoria getById(int idCategoria);
+
 }

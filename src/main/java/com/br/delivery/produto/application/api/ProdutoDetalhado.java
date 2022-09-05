@@ -12,14 +12,14 @@ public class ProdutoDetalhado {
 	private String nome;
 	private String descricao;
 	private Double preço;
-	private String imgUrl;
+	private String nomeCategoria;
 
 	public ProdutoDetalhado(Produto produto) {
+		this.nomeCategoria = "";
 		this.idProduto = produto.getIdProduto();
 		this.nome = produto.getNome();
 		this.descricao = produto.getDescricao();
 		this.preço = produto.getPreço();
-		this.imgUrl = produto.getImgUrl();
 	}
 
 }

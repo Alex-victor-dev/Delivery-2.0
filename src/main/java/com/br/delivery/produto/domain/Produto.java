@@ -33,13 +33,13 @@ public class Produto {
 	private String descricao;
 	@NotNull
 	private Double preço;
-	private String imgUrl;
-
+	private UUID idCategoria;
+	
 	public Produto(@Valid ProdutoRequest produtoRequest) {
 		this.nome = produtoRequest.getNome();
 		this.descricao = produtoRequest.getDescricao();
 		this.preço = produtoRequest.getPreço();
-		this.imgUrl = produtoRequest.getImgUrl();
+		this.idCategoria = produtoRequest.getIdCategoria();
 
 	}
 
@@ -48,7 +48,8 @@ public class Produto {
 		this.nome = produtoAltera.getNome();
 		this.descricao = produtoAltera.getDescricao();
 		this.preço = produtoAltera.getPreço();
-		this.imgUrl = produtoAltera.getImgUrl();
 
 	}
+
+
 }

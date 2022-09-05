@@ -7,6 +7,8 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import com.br.delivery.categoria.domain.Categoria;
+import com.br.delivery.categoria.repository.CategoriaRepository;
 import com.br.delivery.produto.application.api.ProdutoAlteracaoRequest;
 import com.br.delivery.produto.application.api.ProdutoDetalhado;
 import com.br.delivery.produto.application.api.ProdutoListResponse;
@@ -24,13 +26,19 @@ import lombok.extern.log4j.Log4j2;
 public class ProdutoApplicationService implements ProdutoService {
 
 	private final ProdutoRepository produtoRepository;
+	private final CategoriaRepository categoriaRepository;
 
 	@Override
 	public ProdutoResponse postProduto(@Valid ProdutoRequest produtoRequest) {
-		log.info("[inicia] UsuarioApplicationService - postProduto");
+		log.info("[inicia] ProdutoApplicationService - postProduto");
+		Categoria categoria = categoriaRepository.BuscaCategoriaPorId(produtoRequest.getIdCategoria()) ;
 		Produto produto = produtoRepository.salva(new Produto(produtoRequest));
-		log.info("[finaliza] UsuarioApplicationService - postProduto");
-		return ProdutoResponse.builder().idProduto(produto.getIdProduto()).nome(produto.getNome()).build();
+		log.info("[finaliza] ProdutoApplicationService - postProduto");
+		return ProdutoResponse.builder()
+				.idProduto(produto.getIdProduto())
+				.nome(produto.getNome())
+				.nomeCategoria(categoria.getNome())
+				.build();
 	}
 
 	@Override

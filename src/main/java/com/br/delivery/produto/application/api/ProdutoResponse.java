@@ -11,5 +11,5 @@ public class ProdutoResponse {
 
 	private UUID idProduto;
 	private String nome;
-
+	private String nomeCategoria;
 }
