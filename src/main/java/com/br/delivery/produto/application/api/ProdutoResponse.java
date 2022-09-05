@@ -1,7 +1,5 @@
 package com.br.delivery.produto.application.api;
 
-import java.util.UUID;
-
 import lombok.Builder;
 import lombok.Value;
 	
@@ -9,7 +7,7 @@ import lombok.Value;
 @Builder
 public class ProdutoResponse {
 
-	private UUID idProduto;
+	private Integer idProduto;
 	private String nome;
 	private String nomeCategoria;
 }

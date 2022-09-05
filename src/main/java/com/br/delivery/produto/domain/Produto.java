@@ -1,7 +1,5 @@
 package com.br.delivery.produto.domain;
 
-import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,16 +22,16 @@ import lombok.NoArgsConstructor;
 public class Produto {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "idProduto", updatable = false, unique = true, nullable = false)
-	private UUID idProduto;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "Integer" ,name = "IdProduto", updatable = false, nullable = false)
+	private Integer idProduto;
 	@NotBlank
 	private String nome;
 	@NotBlank
 	private String descricao;
 	@NotNull
 	private Double preço;
-	private UUID idCategoria;
+	private int idCategoria;
 	
 	public Produto(@Valid ProdutoRequest produtoRequest) {
 		this.nome = produtoRequest.getNome();

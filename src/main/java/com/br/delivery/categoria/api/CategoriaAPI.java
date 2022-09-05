@@ -1,7 +1,6 @@
 package com.br.delivery.categoria.api;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,11 +26,11 @@ public interface CategoriaAPI {
 	
 	@GetMapping("/{idCategoria}")
 	@ResponseStatus(code = HttpStatus.OK)
-	CategoriaListResponse buscaCategoria(@PathVariable UUID idCategoria);
+	CategoriaListResponse buscaCategoria(@PathVariable Integer idCategoria);
 	
 	@DeleteMapping("/{idCategoria}")
 	@ResponseStatus(code = HttpStatus.OK)
-	void deletaCategoria(@PathVariable UUID idCategoria);
+	void deletaCategoria(@PathVariable Integer idCategoria);
 
 	
 

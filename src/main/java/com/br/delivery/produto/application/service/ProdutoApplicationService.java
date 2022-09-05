@@ -1,7 +1,6 @@
 package com.br.delivery.produto.application.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -50,7 +49,7 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public ProdutoDetalhado detalhaProdutoPorId(UUID idProduto) {
+	public ProdutoDetalhado detalhaProdutoPorId(Integer idProduto) {
 		log.info("[inicia] UsuarioApplicationService - detalhaProdutoPorId");
 		Produto produto = produtoRepository.detalhaProduto(idProduto);
 		log.info("[finaliza] UsuarioApplicationService - detalhaProdutoPorId");
@@ -58,7 +57,7 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public void atualizaProduto(UUID idProduto, @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest) {
+	public void atualizaProduto(Integer idProduto, @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest) {
 
 		Produto produto = produtoRepository.detalhaProduto(idProduto);
 		produto.atualizaProduto(produtoAlteracaoRequest);
@@ -66,7 +65,7 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public void deleta(UUID idProduto) {
+	public void deleta(Integer idProduto) {
 		log.info("[inicia] UsuarioApplicationService - deleta");
 		Produto produto = produtoRepository.detalhaProduto(idProduto);
 		produtoRepository.deleta(produto);

@@ -1,7 +1,6 @@
 package com.br.delivery.produto.application.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -17,10 +16,10 @@ public interface ProdutoService {
 
 	List<ProdutoListResponse> listaTodosProdutos();
 
-	ProdutoDetalhado detalhaProdutoPorId(UUID idProduto);
+	ProdutoDetalhado detalhaProdutoPorId(Integer idProduto);
 
-	void atualizaProduto(UUID idProduto, @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest);
+	void atualizaProduto(Integer idProduto, @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest);
 
-	void deleta(UUID idProduto);
+	void deleta(Integer idProduto);
 
 }

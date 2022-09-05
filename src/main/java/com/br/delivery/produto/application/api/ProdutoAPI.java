@@ -1,7 +1,6 @@
 package com.br.delivery.produto.application.api;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -30,15 +29,15 @@ public interface ProdutoAPI {
 
 	@GetMapping(value = "/{idProduto}")
 	@ResponseStatus(code = HttpStatus.OK)
-	ProdutoDetalhado detalhaProdutoPorId(@PathVariable UUID idProduto);
+	ProdutoDetalhado detalhaProdutoPorId(@PathVariable Integer idProduto);
 
 	@PatchMapping(value = "/{idProduto}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void atualiizaProduto(@PathVariable UUID idProduto,
+	void atualiizaProduto(@PathVariable Integer idProduto,
 			@Valid @RequestBody ProdutoAlteracaoRequest produtoAlteracaoRequest);
 
 	@DeleteMapping(value = "/{idProduto}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void deleta(@PathVariable UUID idProduto);
+	void deleta(@PathVariable Integer idProduto);
 
 }

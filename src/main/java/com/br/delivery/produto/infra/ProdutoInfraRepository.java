@@ -1,7 +1,6 @@
 package com.br.delivery.produto.infra;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
@@ -37,7 +36,7 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 	}
 
 	@Override
-	public Produto detalhaProduto(UUID idProduto) {
+	public Produto detalhaProduto(Integer idProduto) {
 		log.info("[inicia] ProdutoInfraRepository - detalhaProduto");
 		Produto produto = produtoSpringDataJpa.findById(idProduto)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Produto não encontrado!"));

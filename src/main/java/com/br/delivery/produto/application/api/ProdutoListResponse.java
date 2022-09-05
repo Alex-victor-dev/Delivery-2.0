@@ -1,7 +1,6 @@
 package com.br.delivery.produto.application.api;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import com.br.delivery.produto.domain.Produto;
@@ -15,7 +14,7 @@ public class ProdutoListResponse {
 	
 
 	
-	private UUID idProduto;
+	private Integer idProduto;
 	private String nome;
 	private String descricao;
 	private Double preço;

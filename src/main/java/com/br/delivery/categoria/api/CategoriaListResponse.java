@@ -1,7 +1,6 @@
 package com.br.delivery.categoria.api;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import com.br.delivery.categoria.domain.Categoria;
@@ -11,7 +10,7 @@ import lombok.Value;
 @Value
 public class CategoriaListResponse {
 
-	private UUID idCategoria;
+	private Integer idCategoria;
 	private String nome;
 	
 	public static List<CategoriaListResponse> Converte(List<Categoria> categoria) {

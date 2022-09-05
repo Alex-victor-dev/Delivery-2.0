@@ -1,7 +1,6 @@
 package com.br.delivery.categoria.infra;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +28,7 @@ public class CategoriaInfraRepository implements CategoriaRepository {
 	}
 
 	@Override
-	public Categoria BuscaCategoriaPorId(UUID idCategoria) {
+	public Categoria BuscaCategoriaPorId(Integer idCategoria) {
 		Categoria categoria = 
 				categoriaSpringDataJPA.findById(idCategoria)
 				.orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
@@ -40,7 +39,8 @@ public class CategoriaInfraRepository implements CategoriaRepository {
 	public void DeletaCategoria(Categoria categoria) {
 		categoriaSpringDataJPA.delete(categoria);
 	}
-	
+
+
 	
 	
 	
