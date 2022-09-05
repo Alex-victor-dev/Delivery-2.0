@@ -1,7 +1,6 @@
 package com.br.delivery.categoria.repository;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.br.delivery.categoria.domain.Categoria;
 
@@ -11,7 +10,8 @@ public interface CategoriaRepository {
 
 	List<Categoria> BuscaTodasCategorias();
 
-	Categoria BuscaCategoriaPorId(UUID idCategoria);
+	
+	Categoria BuscaCategoriaPorId(Integer idCategoria);
 
 	void DeletaCategoria(Categoria categoria);
 

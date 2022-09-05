@@ -1,7 +1,5 @@
 package com.br.delivery.categoria.domain;
 
-import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,9 +18,9 @@ import lombok.NoArgsConstructor;
 public class Categoria {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "idCategoria", updatable = false, unique = true, nullable = false)
-	private UUID idCategoria;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column (columnDefinition = "Integer", name = "idCategoria", updatable = false, nullable = false)
+	private Integer idCategoria;
 	private String nome;
 
 	public Categoria(CategoriaRequest categoriaRequest) {

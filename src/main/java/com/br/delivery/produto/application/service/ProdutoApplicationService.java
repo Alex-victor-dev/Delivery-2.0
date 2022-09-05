@@ -1,12 +1,13 @@
 package com.br.delivery.produto.application.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import com.br.delivery.categoria.domain.Categoria;
+import com.br.delivery.categoria.repository.CategoriaRepository;
 import com.br.delivery.produto.application.api.ProdutoAlteracaoRequest;
 import com.br.delivery.produto.application.api.ProdutoDetalhado;
 import com.br.delivery.produto.application.api.ProdutoListResponse;
@@ -24,13 +25,19 @@ import lombok.extern.log4j.Log4j2;
 public class ProdutoApplicationService implements ProdutoService {
 
 	private final ProdutoRepository produtoRepository;
+	private final CategoriaRepository categoriaRepository;
 
 	@Override
 	public ProdutoResponse postProduto(@Valid ProdutoRequest produtoRequest) {
-		log.info("[inicia] UsuarioApplicationService - postProduto");
+		log.info("[inicia] ProdutoApplicationService - postProduto");
+		Categoria categoria = categoriaRepository.BuscaCategoriaPorId(produtoRequest.getIdCategoria()) ;
 		Produto produto = produtoRepository.salva(new Produto(produtoRequest));
-		log.info("[finaliza] UsuarioApplicationService - postProduto");
-		return ProdutoResponse.builder().idProduto(produto.getIdProduto()).nome(produto.getNome()).build();
+		log.info("[finaliza] ProdutoApplicationService - postProduto");
+		return ProdutoResponse.builder()
+				.idProduto(produto.getIdProduto())
+				.nome(produto.getNome())
+				.nomeCategoria(categoria.getNome())
+				.build();
 	}
 
 	@Override
@@ -42,7 +49,7 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public ProdutoDetalhado detalhaProdutoPorId(UUID idProduto) {
+	public ProdutoDetalhado detalhaProdutoPorId(Integer idProduto) {
 		log.info("[inicia] UsuarioApplicationService - detalhaProdutoPorId");
 		Produto produto = produtoRepository.detalhaProduto(idProduto);
 		log.info("[finaliza] UsuarioApplicationService - detalhaProdutoPorId");
@@ -50,7 +57,7 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public void atualizaProduto(UUID idProduto, @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest) {
+	public void atualizaProduto(Integer idProduto, @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest) {
 
 		Produto produto = produtoRepository.detalhaProduto(idProduto);
 		produto.atualizaProduto(produtoAlteracaoRequest);
@@ -58,7 +65,7 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public void deleta(UUID idProduto) {
+	public void deleta(Integer idProduto) {
 		log.info("[inicia] UsuarioApplicationService - deleta");
 		Produto produto = produtoRepository.detalhaProduto(idProduto);
 		produtoRepository.deleta(produto);

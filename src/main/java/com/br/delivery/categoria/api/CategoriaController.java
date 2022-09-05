@@ -1,7 +1,6 @@
 package com.br.delivery.categoria.api;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,13 +33,13 @@ public class CategoriaController implements CategoriaAPI {
 	}
 
 	@Override
-	public CategoriaListResponse buscaCategoria(UUID idCategoria) {
+	public CategoriaListResponse buscaCategoria(Integer idCategoria) {
 		CategoriaListResponse categoriaResponse = categoriaService.BuscaPorID(idCategoria);
 		return categoriaResponse;
 	}
 
 	@Override
-	public void deletaCategoria(UUID idCategoria) {
+	public void deletaCategoria(Integer idCategoria) {
 		categoriaService.DeletaCategoria(idCategoria);
 	}
 

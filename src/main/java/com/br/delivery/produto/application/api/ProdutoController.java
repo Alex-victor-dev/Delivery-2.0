@@ -1,7 +1,6 @@
 package com.br.delivery.produto.application.api;
 
 import java.util.List;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -36,13 +35,13 @@ public class ProdutoController implements ProdutoAPI {
 	}
 
 	@Override
-	public ProdutoDetalhado detalhaProdutoPorId(UUID idProduto) {
+	public ProdutoDetalhado detalhaProdutoPorId(Integer idProduto) {
 		ProdutoDetalhado produto = produtoService.detalhaProdutoPorId(idProduto);
 		return produto;
 	}
 
 	@Override
-	public void atualiizaProduto(UUID idProduto, @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest) {
+	public void atualiizaProduto(Integer idProduto, @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest) {
 		log.info("[inicia] ProdutoController - atualiizaProduto");
 		produtoService.atualizaProduto(idProduto, produtoAlteracaoRequest);
 		log.info("[finaliza] ProdutoController - atualiizaProduto");
@@ -51,7 +50,7 @@ public class ProdutoController implements ProdutoAPI {
 	}
 
 	@Override
-	public void deleta(UUID idProduto) {
+	public void deleta(Integer idProduto) {
 		log.info("[inicia] ProdutoController - deleta");
 		produtoService.deleta(idProduto);
 		log.info("[finaliza] ProdutoController - deleta");

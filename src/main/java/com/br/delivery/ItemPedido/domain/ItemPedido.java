@@ -30,7 +30,7 @@ public class ItemPedido {
 	
 	public ItemPedido(ItemPedidoRequest itemPedidoRequest) {
 		this.quantidade = itemPedidoRequest.getQuantidade();
-
+		
 	}
 
 	@Autowired

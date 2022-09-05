@@ -1,7 +1,6 @@
 package com.br.delivery.categoria.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -26,7 +25,10 @@ public class categoriaApplicationService implements CategoriaService {
 		log.info("[inicia] CategoriaController - CriaCategoria");
 		Categoria categoria = categoriaRepository.Salva(new Categoria(categoriaRequest));
 		log.info("[finaliza] CategoriaController - CriaCategoria");
-		return CategoriaResponse.builder().idCategoria(categoria.getIdCategoria()).nome(categoria.getNome()).build();
+		return CategoriaResponse.builder()
+				.idCategoria(categoria.getIdCategoria())
+				.nome(categoria.getNome())
+				.build();
 	}
 
 	@Override
@@ -40,13 +42,13 @@ public class categoriaApplicationService implements CategoriaService {
 	}
 
 	@Override
-	public CategoriaListResponse BuscaPorID(UUID idCategoria) {
+	public CategoriaListResponse BuscaPorID(Integer idCategoria) {
 		Categoria categoria = categoriaRepository.BuscaCategoriaPorId(idCategoria);
 		return new CategoriaListResponse(categoria);
 	}
 
 	@Override
-	public void DeletaCategoria(UUID idCategoria) {
+	public void DeletaCategoria(Integer idCategoria) {
 		Categoria categoria = categoriaRepository.BuscaCategoriaPorId(idCategoria);
 		categoriaRepository.DeletaCategoria(categoria);
 	}

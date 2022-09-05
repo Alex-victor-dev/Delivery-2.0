@@ -9,5 +9,5 @@ public class ProdutoRequest {
 	private String nome;
 	private String descricao;
 	private Double preço;
-	private String imgUrl;
+	private int idCategoria;
 }

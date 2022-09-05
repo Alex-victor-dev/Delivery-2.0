@@ -1,7 +1,6 @@
 package com.br.delivery.categoria.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.br.delivery.categoria.api.CategoriaListResponse;
 import com.br.delivery.categoria.api.CategoriaRequest;
@@ -13,9 +12,9 @@ public interface CategoriaService {
 
 	List<CategoriaListResponse> BuscaTodosCategorias();
 
-	CategoriaListResponse BuscaPorID(UUID idCategoria);
+	CategoriaListResponse BuscaPorID(Integer idCategoria);
 
-	void DeletaCategoria(UUID idCategoria);
+	void DeletaCategoria(Integer idCategoria);
 
 
 
